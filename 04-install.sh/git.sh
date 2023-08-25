@@ -1,4 +1,7 @@
 #!/bin/bash
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/opt/$SCRIPT_NAME-$DATE.log
 USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
@@ -7,10 +10,10 @@ then
 fi
 
 # Check if Git is already installed
-if which mysql >/dev/null 2>&1; then
+if which mysql >/dev/null 2>&1; then 
     echo "mysql is already installed."
 else
     echo "mysql is not installed. Installing Git..."
-    sudo yum install mysql -y
-    echo "mysql has been installed."
+    sudo yum install mysql -y &>>LOGFILE
+    echo "mysql has been installed." 
 fi
