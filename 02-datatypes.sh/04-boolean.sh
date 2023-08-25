@@ -17,7 +17,7 @@ is_even() {
 }
 
 # Using the is_even function
-number=7
+number=$1
 
 if is_even $number; then
     echo "$number is even."
