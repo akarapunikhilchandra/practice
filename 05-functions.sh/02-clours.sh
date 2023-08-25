@@ -9,6 +9,7 @@ LOGFILE=/opt/$SCRIPT_NAME-$DATE.log
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\e[33m"
 
 # this function should validate the previous command and inform user it is success or failure
 VALIDATE(){
@@ -38,7 +39,7 @@ yum install mysql -y &>>$LOGFILE
 
 
 if command -v mysql &>/dev/null; then
-    echo "MySQL is already installed."
+    echo -e " $Y MySQL is already installed $N."
 else
     echo "MySQL is not installed."
 fi
@@ -47,5 +48,11 @@ fi
 VALIDATE $? "Installing MySQL"
 
 yum install postfix -y &>>$LOGFILE
+
+if command -v postfix &>/dev/null; then
+    echo -e " $Y postfix is already installed $N."
+else
+    echo "postfix is not installed."
+fi
 
 VALIDATE $? "Installing postfix"
