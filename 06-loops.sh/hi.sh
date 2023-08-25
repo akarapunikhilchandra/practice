@@ -1,8 +1,8 @@
 #!/bin/bash
 DATE=$(date +%F)
 SCRIPT_NAME=$0
-LOG_DIR=/opt/logs
-LOGFILE=$LOG_DIR/$SCRIPT_NAME-$DATE.log
+LOGSDIR=/opt/logs/
+LOGFILE=$LOGSDIR/$SCRIPT_NAME-$DATE.log
 
 yum install mysql -y &>>LOGFILE
 
