@@ -45,7 +45,7 @@ else
 fi
 
 
-VALIDATE $? 
+VALIDATE $? "installing"
 if command -v postfix &>/dev/null; then
     echo -e "${G}postfix is already installed.${N}"
 else
@@ -54,4 +54,4 @@ else
     # For example: sudo apt-get install mysql-server
 fi
 
-VALIDATE $? 
+VALIDATE $? "installing"
