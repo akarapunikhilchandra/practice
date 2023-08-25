@@ -10,4 +10,5 @@ fi
 }
 
 yum install mysql -y
+
 VALIDATE $? "INSTALLING MYSQL"
