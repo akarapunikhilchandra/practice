@@ -32,11 +32,20 @@ then
 #     echo "INFO:: You are root user"
 fi
 
+
 # it is our responsibility again to check installation is success or not
 yum install mysql -y &>>$LOGFILE
 
+
+if command -v mysql &>/dev/null; then
+    echo "MySQL is already installed."
+else
+    echo "MySQL is not installed."
+fi
+
+
 VALIDATE $? "Installing MySQL"
 
-yum install posddtfix -y &>>$LOGFILE
+yum install postfix -y &>>$LOGFILE
 
 VALIDATE $? "Installing postfix"
