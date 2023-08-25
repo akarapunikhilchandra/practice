@@ -35,26 +35,23 @@ fi
 
 
 # it is our responsibility again to check installation is success or not
-yum install mysql -y &>>$LOGFILE
-
 
 if command -v mysql &>/dev/null; then
-    echo -e " $Y MySQL is already installed $N."
-    exit 1
+    echo -e "${G}MySQL is already installed.${N}"
 else
-    echo "MySQL is not installed."
+    echo -e "${Y}MySQL is not installed. Installing MySQL...${N}"
+    yum install mysql -y &>>LOGFILE
+    # For example: sudo apt-get install mysql-server
 fi
 
 
-VALIDATE $? "Installing MySQL"
-
-yum install postfix -y &>>$LOGFILE
-
+VALIDATE $? 
 if command -v postfix &>/dev/null; then
-    echo -e " $Y postfix is already installed $N." 
-    exit 1
+    echo -e "${G}postfix is already installed.${N}"
 else
-    echo "postfix is not installed."
+    echo -e "${Y}postfix is not installed. Installing postfix...${N}"
+    yum install postfix -y &>>LOGFILE
+    # For example: sudo apt-get install mysql-server
 fi
 
-VALIDATE $? "Installing postfix"
+VALIDATE $? 
