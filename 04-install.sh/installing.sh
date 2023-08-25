@@ -6,29 +6,16 @@ DATE=$(date +%F)
 SCRIPT_NAME=$0
 LOGFILE=/opt/$SCRIPT_NAME-$DATE.log
 
-# this function should validate the previous command and inform user it is success or failure
-VALIDATE(){
-    #$1 --> it will receive the argument1
-    if [ $1 -ne 0 ]
-    then
-        echo -e "$2 ... $R FAILURE $N"
-        exit 1
-    else
-        echo -e "$2 ... $G SUCCESS $N"
-    fi
-}
-
-USERID=$(id -u)
-
 if [ $USERID -ne 0 ]
 then
-    echo "ERROR:: Please run this script with root access"
+    echo "you are not root user please again try with sudo permissions"
     exit 1
-# else
-#     echo "INFO:: You are root user"
 fi
-
-# it is our responsibility again to check installation is success or not
-yum install mysql -y &>>$LOGFILE
-
-VALIDATE $? "Installing MySQL"
+# Check if Git is already installed
+if which mysql >/dev/null 2>&1; then 
+    echo "mysql is already installed."
+else
+    echo "mysql is not installed. Installing Git..."
+    sudo yum install mysql -y &>>LOGFILE
+    echo "mysql has been installed." 
+fi
