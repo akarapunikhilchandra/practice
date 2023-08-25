@@ -16,5 +16,5 @@ then
     exit 1
 fi
 
-yum install mysql -y
+yum remove mysql -y
 VALIDATE $? "Installing mysql"
