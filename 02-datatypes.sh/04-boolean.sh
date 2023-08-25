@@ -10,9 +10,9 @@ false_value=0
 # A simple function to check if a number is even
 is_even() {
     if [ $(($1 % 2)) -eq $false_value ]; then
-        return $true_value
-    else
         return $false_value
+    else
+        return $true_value
     fi
 }
 
