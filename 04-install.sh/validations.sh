@@ -8,3 +8,6 @@ else
     echo "install success"
 fi
 }
+
+yum install mysql -y
+VALIDATE $? "INSTALLING MYSQL"
