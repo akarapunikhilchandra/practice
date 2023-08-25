@@ -7,3 +7,4 @@ SCRIPT_NAME=$0
 LOGFILE=/opt/$SCRIPT_NAME-$DATE.log
 
 yum install git -y &>>LOGFILE
+VALIDATE $? 
