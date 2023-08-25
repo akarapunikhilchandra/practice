@@ -40,6 +40,7 @@ yum install mysql -y &>>$LOGFILE
 
 if command -v mysql &>/dev/null; then
     echo -e " $Y MySQL is already installed $N."
+    exit 1
 else
     echo "MySQL is not installed."
 fi
@@ -50,7 +51,8 @@ VALIDATE $? "Installing MySQL"
 yum install postfix -y &>>$LOGFILE
 
 if command -v postfix &>/dev/null; then
-    echo -e " $Y postfix is already installed $N."
+    echo -e " $Y postfix is already installed $N." 
+    exit 1
 else
     echo "postfix is not installed."
 fi
