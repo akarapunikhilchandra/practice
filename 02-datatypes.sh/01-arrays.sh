@@ -1,4 +1,4 @@
 #!/bin/bash
 PERSONS=( "ramesh" "nikhil" "chandra" )
 
-    echo "Firstperson : ${PERSON[0]}"
+    echo "Firstperson : ${PERSONS[0]}"
