@@ -27,4 +27,6 @@ done <<< $DISK_USAGE
 echo -e "message: $message"
 
  #echo "$message" | mail -s "HIGH DISK USAGE" akarapunikhilchandra98@gmail.com
- mail.sh akarapunikhilchandra98@gmail.com "HIGH DISK USAGE" "$message" "DEVOPS TEAM" "HIGH DISK USAGE"
+
+ #how to call other script from your current script
+ sh mail.sh akarapunikhilchandra98@gmail.com "HIGH DISK USAGE" "$message" "DEVOPS TEAM" "HIGH DISK USAGE"
